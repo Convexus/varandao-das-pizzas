@@ -1,0 +1,1 @@
+INSERT INTO Cliente (nome, celular, telefone) VALUES ('Rafael Fujii', 994244069, 35864827);
