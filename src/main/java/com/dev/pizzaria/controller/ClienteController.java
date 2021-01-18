@@ -37,12 +37,12 @@ public class ClienteController implements Serializable{
 	}
 	
 	@GetMapping("/telefone/{telefone}")
-	public Cliente byTelefone(@PathVariable String telefone) {
+	public Cliente byTelefone(@PathVariable Long telefone) {
 		return clienteRepository.findByTelefone(telefone);
 	}
 
 	@GetMapping("/celular/{celular}")
-	public Cliente byCelular(@PathVariable String celular) {
+	public Cliente byCelular(@PathVariable Long celular) {
 		return clienteRepository.findByCelular(celular);
 	}
 	

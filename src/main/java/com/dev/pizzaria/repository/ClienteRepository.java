@@ -6,7 +6,7 @@ import com.dev.pizzaria.model.Cliente;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
 	
-	Cliente findByTelefone(String telefone);
+	Cliente findByTelefone(Long telefone);
 
-	Cliente findByCelular(String celular);
+	Cliente findByCelular(Long celular);
 }
