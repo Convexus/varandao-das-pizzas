@@ -5,8 +5,6 @@ INSERT INTO Endereco (bairro, cep, complemento, logradouro, num_endereco, obs, c
 INSERT INTO Endereco (bairro, cep, logradouro, num_endereco, cliente_id) VALUES ('Centro', 20011010, 'Beco dos Barbeiros', 111, 2);
 INSERT INTO Endereco (bairro, cep, logradouro, num_endereco, cliente_id) VALUES ('Centro', 20011010, 'Beco dos Barbeiros', 111, 1);
 
-INSERT INTO Pizza (com_ou_sem_borda, qnt_sabores, tamanho) VALUES (true, 1, 'Grande');
-
 INSERT INTO Borda (sabor) VALUES ('Chocolate');
 INSERT INTO Borda (sabor) VALUES ('Cheddar');
 INSERT INTO Borda (sabor) VALUES ('Catupiry');
@@ -15,3 +13,5 @@ INSERT INTO Sabor (sabor, valor) VALUES ('Margherita', 40.50);
 INSERT INTO Sabor (sabor, valor) VALUES ('Calabresa', 42.75);
 INSERT INTO Sabor (sabor, valor) VALUES ('Portuguesa', 50.00);
 
+INSERT INTO Acompanhamento (descricao, valor) VALUES ('Coca-Cola 2L', 10.00);
+INSERT INTO Acompanhamento (descricao, valor) VALUES ('Pepsi 2L', 10.00);

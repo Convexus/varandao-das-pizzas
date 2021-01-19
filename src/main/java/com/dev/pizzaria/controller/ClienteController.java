@@ -52,7 +52,7 @@ public class ClienteController implements Serializable{
 	public List<Cliente> byEndereco(@PathVariable String endereco){
 		return clienteRepository.findByEndereco(endereco);
 	}
-	
+
 	@PostMapping("/new")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public void newCliente(@RequestBody Cliente cliente) {	

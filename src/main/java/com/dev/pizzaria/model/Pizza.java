@@ -1,6 +1,7 @@
 package com.dev.pizzaria.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -8,6 +9,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 import com.dev.pizzaria.model.enu.Tamanho;
 
@@ -22,15 +25,22 @@ public class Pizza implements Serializable{
 	private Tamanho tamanho;
 	private Integer qntSabores;
 	private Boolean comOuSemBorda;
+	@OneToOne
+	private Borda borda;
+	@ManyToMany
+	private List<Sabor> sabor;
 
 	public Pizza() {}
 
-	public Pizza(Integer id, Tamanho tamanho, Integer qntSabores, Boolean comOuSemBorda) {
+	public Pizza(Integer id, Tamanho tamanho, Integer qntSabores, Boolean comOuSemBorda, Borda borda,
+			List<Sabor> sabor) {
 		super();
 		this.id = id;
 		this.tamanho = tamanho;
 		this.qntSabores = qntSabores;
 		this.comOuSemBorda = comOuSemBorda;
+		this.borda = borda;
+		this.sabor = sabor;
 	}
 
 	public Integer getId() {
@@ -57,14 +67,28 @@ public class Pizza implements Serializable{
 	public void setComOuSemBorda(Boolean comOuSemBorda) {
 		this.comOuSemBorda = comOuSemBorda;
 	}
+	public Borda getBorda() {
+		return borda;
+	}
+	public void setBorda(Borda borda) {
+		this.borda = borda;
+	}
+	public List<Sabor> getSabor() {
+		return sabor;
+	}
+	public void setSabor(List<Sabor> sabor) {
+		this.sabor = sabor;
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((borda == null) ? 0 : borda.hashCode());
 		result = prime * result + ((comOuSemBorda == null) ? 0 : comOuSemBorda.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((qntSabores == null) ? 0 : qntSabores.hashCode());
+		result = prime * result + ((sabor == null) ? 0 : sabor.hashCode());
 		result = prime * result + ((tamanho == null) ? 0 : tamanho.hashCode());
 		return result;
 	}
@@ -77,6 +101,11 @@ public class Pizza implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Pizza other = (Pizza) obj;
+		if (borda == null) {
+			if (other.borda != null)
+				return false;
+		} else if (!borda.equals(other.borda))
+			return false;
 		if (comOuSemBorda == null) {
 			if (other.comOuSemBorda != null)
 				return false;
@@ -92,6 +121,11 @@ public class Pizza implements Serializable{
 				return false;
 		} else if (!qntSabores.equals(other.qntSabores))
 			return false;
+		if (sabor == null) {
+			if (other.sabor != null)
+				return false;
+		} else if (!sabor.equals(other.sabor))
+			return false;
 		if (tamanho != other.tamanho)
 			return false;
 		return true;
@@ -99,6 +133,7 @@ public class Pizza implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Pizza [id=" + id + ", tamanho=" + tamanho + ", qntSabores=" + qntSabores + ", comOuSemBorda=" + comOuSemBorda + "]";
-	}		
+		return "Pizza [id=" + id + ", tamanho=" + tamanho + ", qntSabores=" + qntSabores + ", comOuSemBorda="
+				+ comOuSemBorda + ", borda=" + borda + ", sabor=" + sabor + "]";
+	}
 }
