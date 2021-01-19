@@ -15,19 +15,19 @@ public class PedidoService implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	private Double novoTotal = 0.00;
-	
+
 	public Pedido calcularTotal(Pedido pedido) {
 		List<Pizza> pizzas = pedido.getPizza();
 		pizzas.forEach(pizza -> {
 			List<Sabor> sabores = pizza.getSabor();
-			sabores.forEach(sabor -> {
+		 	sabores.forEach(sabor -> {
 				novoTotal = novoTotal + sabor.getValor();
 			});
 		});
-		
+
 		pedido.setDataPedido(new Date());
 		pedido.setTotal(novoTotal);
-		
+
 		return pedido;
 	}
 }
