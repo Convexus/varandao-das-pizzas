@@ -1,6 +1,9 @@
 INSERT INTO Cliente (nome, celular, telefone) VALUES ('Rafael Fujii', 994244069, 35864827);
+INSERT INTO Cliente (nome, celular, telefone) VALUES ('Gabriela Sueli Carolina Ferreira', 983896456, 25904239);
 
 INSERT INTO Endereco (bairro, cep, complemento, logradouro, num_endereco, obs, cliente_id) VALUES ('Inhauma', 20765040, 'Rua A, cs 55, aprt 201', 'Rua Engenho da Rainha', 316, 'Interforne 55201, Proximo 44 delegacia', 1);
+INSERT INTO Endereco (bairro, cep, logradouro, num_endereco, cliente_id) VALUES ('Centro', 20011010, 'Beco dos Barbeiros', 111, 2);
+INSERT INTO Endereco (bairro, cep, logradouro, num_endereco, cliente_id) VALUES ('Centro', 20011010, 'Beco dos Barbeiros', 111, 1);
 
 INSERT INTO Pizza (com_ou_sem_borda, qnt_sabores, tamanho) VALUES (true, 1, 'Grande');
 

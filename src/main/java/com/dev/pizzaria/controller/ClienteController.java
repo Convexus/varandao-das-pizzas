@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dev.pizzaria.model.Cliente;
 import com.dev.pizzaria.repository.ClienteRepository;
+import com.dev.pizzaria.repository.EnderecoRepository;
 
 @RestController
 @RequestMapping("/clientes")
@@ -25,6 +26,7 @@ public class ClienteController implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Autowired ClienteRepository clienteRepository;
+	@Autowired EnderecoRepository enderecoRepository;
 
 	@GetMapping("/all")
 	public List<Cliente> all() {
@@ -46,9 +48,14 @@ public class ClienteController implements Serializable{
 		return clienteRepository.findByCelular(celular);
 	}
 	
-	@ResponseStatus(code = HttpStatus.CREATED)
+	@GetMapping("/endereco/{endereco}")
+	public List<Cliente> byEndereco(@PathVariable String endereco){
+		return clienteRepository.findByEndereco(endereco);
+	}
+	
 	@PostMapping("/new")
-	public void novo(@RequestBody Cliente cliente) {	
+	@ResponseStatus(code = HttpStatus.CREATED)
+	public void newCliente(@RequestBody Cliente cliente) {	
 	 	clienteRepository.save(cliente);
 	}
 }
