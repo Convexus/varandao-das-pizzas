@@ -4,4 +4,4 @@ services:
   pizzaria-api:
     image: pizzaria-api:latest
     ports:
-      - 5555:80
+      - 4040:80
