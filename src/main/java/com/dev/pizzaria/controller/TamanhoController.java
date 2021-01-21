@@ -27,7 +27,7 @@ public class TamanhoController implements Serializable{
 	public List<Tamanho> all(){
 		return tamanhoRepository.findAll();
 	}
-	
+
 	@GetMapping("/allAcompanhamento")
 	public List<Tamanho> allAcompanhamento(){
 		List<Tamanho> tamanhos = tamanhoRepository.findAll();
@@ -38,9 +38,10 @@ public class TamanhoController implements Serializable{
 			});
 			tamanho.setAcompanhamentos(acompanhamentos);
 		});
+		System.out.println(tamanhos);
 		return tamanhos;
 	}
-	
+
 	@PostMapping("/new")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public void newTamanho(@RequestBody Tamanho tamanho) {
