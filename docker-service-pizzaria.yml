@@ -1,0 +1,7 @@
+version: "3.3"
+
+services:
+  pizzaria-api:
+    image: pizzaria-api:latest
+    ports:
+      - 5555:80
