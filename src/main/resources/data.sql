@@ -9,9 +9,23 @@ INSERT INTO Borda (sabor) VALUES ('Chocolate');
 INSERT INTO Borda (sabor) VALUES ('Cheddar');
 INSERT INTO Borda (sabor) VALUES ('Catupiry');
 
-INSERT INTO Sabor (sabor, valor) VALUES ('Margherita', 40.50);
-INSERT INTO Sabor (sabor, valor) VALUES ('Calabresa', 42.75);
-INSERT INTO Sabor (sabor, valor) VALUES ('Portuguesa', 50.00);
+INSERT INTO Sabor (sabor) VALUES ('Margherita');
+INSERT INTO Sabor (sabor) VALUES ('Calabresa');
+INSERT INTO Sabor (sabor) VALUES ('Portuguesa');
 
 INSERT INTO Acompanhamento (descricao, valor) VALUES ('Coca-Cola 2L', 10.00);
 INSERT INTO Acompanhamento (descricao, valor) VALUES ('Pepsi 2L', 10.00);
+
+INSERT INTO Tamanho (tamanho, valor) VALUES ('Super',65.00);
+INSERT INTO Tamanho (tamanho, valor) VALUES ('Maraca',58.00);
+INSERT INTO Tamanho (tamanho, valor) VALUES ('Grande',50.00);
+INSERT INTO Tamanho (tamanho, valor) VALUES ('Media',40.00);
+INSERT INTO Tamanho (tamanho, valor) VALUES ('Pequena',30.00);
+
+INSERT INTO Tamanho_acompanhamentos (tamanho_id, acompanhamentos_id) VALUES (1,1);
+INSERT INTO Tamanho_acompanhamentos (tamanho_id, acompanhamentos_id) VALUES (1,2);
+INSERT INTO Tamanho_acompanhamentos (tamanho_id, acompanhamentos_id) VALUES (2,1);
+INSERT INTO Tamanho_acompanhamentos (tamanho_id, acompanhamentos_id) VALUES (2,2);
+INSERT INTO Tamanho_acompanhamentos (tamanho_id, acompanhamentos_id) VALUES (3,1);
+INSERT INTO Tamanho_acompanhamentos (tamanho_id, acompanhamentos_id) VALUES (4,1);
+INSERT INTO Tamanho_acompanhamentos (tamanho_id, acompanhamentos_id) VALUES (5,1);

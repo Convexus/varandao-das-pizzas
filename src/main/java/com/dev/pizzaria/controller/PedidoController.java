@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,10 +28,7 @@ public class PedidoController implements Serializable {
 	}
 
 	@PostMapping("/new")
-	public ResponseEntity<Pedido> newPedido(@RequestBody Pedido pedido) {
-		Pedido pedidoSalvo = pedidoRepository.save(pedidoService.calcularTotal(pedido));
-		return pedidoSalvo != null ? ResponseEntity.ok(pedidoSalvo)
-				: ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-
+	public Pedido newPedido(@RequestBody Pedido pedido) {
+		return pedidoRepository.save(pedidoService.calcularTotal(pedido));
 	}
 }

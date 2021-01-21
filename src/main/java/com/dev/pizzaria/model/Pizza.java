@@ -4,15 +4,11 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
-
-import com.dev.pizzaria.model.enu.Tamanho;
 
 @Entity
 public class Pizza implements Serializable{
@@ -21,7 +17,7 @@ public class Pizza implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Enumerated(EnumType.STRING)
+	@OneToOne
 	private Tamanho tamanho;
 	private Integer qntSabores;
 	private Boolean comOuSemBorda;

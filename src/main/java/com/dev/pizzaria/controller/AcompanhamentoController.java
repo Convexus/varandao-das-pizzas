@@ -21,7 +21,7 @@ public class AcompanhamentoController implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Autowired AcompanhamentoRepository acompanhamentoRepository;
-	
+
 	@GetMapping("/all")
 	public List<Acompanhamento> all(){
 		return acompanhamentoRepository.findAll();

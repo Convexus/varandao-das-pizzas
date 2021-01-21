@@ -29,7 +29,7 @@ public class PizzaController implements Serializable{
 	
 	@PostMapping("/new")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public void newPizza(@RequestBody Pizza pizza) {
-		pizzaRepository.save(pizza);
+	public Pizza newPizza(@RequestBody Pizza pizza) {
+		return pizzaRepository.save(pizza);
 	}
 }

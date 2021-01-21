@@ -18,7 +18,6 @@ public class Pedido implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private Boolean comAcompanhamento;
 	@ManyToMany
 	private List<Acompanhamento> acompanhamento;
 	@ManyToMany
@@ -30,11 +29,10 @@ public class Pedido implements Serializable{
 	
 	public Pedido() {}
 
-	public Pedido(Integer id, Boolean comAcompanhamento, List<Acompanhamento> acompanhamento, List<Pizza> pizza,
+	public Pedido(Integer id, List<Acompanhamento> acompanhamento, List<Pizza> pizza,
 			Double total, Cliente cliente, Date dataPedido) {
 		super();
 		this.id = id;
-		this.comAcompanhamento = comAcompanhamento;
 		this.acompanhamento = acompanhamento;
 		this.pizza = pizza;
 		this.total = total;
@@ -47,12 +45,6 @@ public class Pedido implements Serializable{
 	}
 	public void setId(Integer id) {
 		this.id = id;
-	}
-	public Boolean getComAcompanhamento() {
-		return comAcompanhamento;
-	}
-	public void setComAcompanhamento(Boolean comAcompanhamento) {
-		this.comAcompanhamento = comAcompanhamento;
 	}
 	public List<Acompanhamento> getAcompanhamento() {
 		return acompanhamento;
@@ -90,7 +82,6 @@ public class Pedido implements Serializable{
 		int result = 1;
 		result = prime * result + ((acompanhamento == null) ? 0 : acompanhamento.hashCode());
 		result = prime * result + ((cliente == null) ? 0 : cliente.hashCode());
-		result = prime * result + ((comAcompanhamento == null) ? 0 : comAcompanhamento.hashCode());
 		result = prime * result + ((dataPedido == null) ? 0 : dataPedido.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((pizza == null) ? 0 : pizza.hashCode());
@@ -115,11 +106,6 @@ public class Pedido implements Serializable{
 			if (other.cliente != null)
 				return false;
 		} else if (!cliente.equals(other.cliente))
-			return false;
-		if (comAcompanhamento == null) {
-			if (other.comAcompanhamento != null)
-				return false;
-		} else if (!comAcompanhamento.equals(other.comAcompanhamento))
 			return false;
 		if (dataPedido == null) {
 			if (other.dataPedido != null)
@@ -146,7 +132,7 @@ public class Pedido implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "Pedido [id=" + id + ", comAcompanhamento=" + comAcompanhamento + ", acompanhamento=" + acompanhamento
+		return "Pedido [id=" + id + ", acompanhamento=" + acompanhamento
 				+ ", pizza=" + pizza + ", total=" + total + ", cliente=" + cliente + ", dataPedido=" + dataPedido + "]";
 	}
 }
