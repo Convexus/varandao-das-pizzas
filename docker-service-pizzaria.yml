@@ -5,3 +5,8 @@ services:
     image: pizzaria-api:latest
     ports:
       - 4040:80
+    networks:
+      - net-rafa
+networks:
+  net-rafa:
+    external: true
