@@ -9,4 +9,4 @@ services:
       - net-rafa
 networks:
   net-rafa:
-    external: true
+    external: false
